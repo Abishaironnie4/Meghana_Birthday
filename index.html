@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 <title>Happy Birthday Meghana</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800;900&family=Caveat:wght@600;700&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -29,11 +29,16 @@
   --coral:#ff6f6a;
 }
 *{box-sizing:border-box}
-html,body{height:100%;margin:0}
+html,body{
+  min-height:100%;
+  margin:0;
+  padding:0;
+  -webkit-tap-highlight-color: transparent;
+}
 body{
   background: var(--bg-gradient);
   background-attachment: fixed;
-  font-family:'Nunito',system-ui;
+  font-family:'Nunito',system-ui, -apple-system, sans-serif;
   color:var(--ink);
   overflow-x:hidden;
 }
@@ -48,18 +53,18 @@ body{
   opacity:.45;
 }
 .sparkle{
-  position:fixed; pointer-events:none; font-size:22px; opacity:0;
+  position:fixed; pointer-events:none; font-size:20px; opacity:0;
   text-shadow:0 0 10px #fff8, 0 0 16px #ffd7; z-index:6;
 }
 
 /* ================= BACK BUTTON ================= */
 .backBtn{
-  position:fixed; top:16px; left:16px; z-index:30;
-  width:42px; height:42px; border-radius:50%;
+  position:fixed; top:14px; left:14px; z-index:30;
+  width:40px; height:40px; border-radius:50%;
   background:#fff; border:3px solid var(--ink);
   display:none; align-items:center; justify-content:center;
-  font-size:18px; font-weight:900; cursor:pointer;
-  box-shadow:0 5px 0 #0002;
+  font-size:17px; font-weight:900; cursor:pointer;
+  box-shadow:0 4px 0 #0002;
 }
 
 /* ================= GATE ================= */
@@ -69,7 +74,7 @@ body{
 .scene{
   position:fixed; inset:0; z-index:3;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
-  text-align:center; gap:20px; padding:20px;
+  text-align:center; gap:18px; padding:16px;
   opacity:0; visibility:hidden; pointer-events:none;
   transition:opacity .45s ease;
 }
@@ -85,11 +90,11 @@ body{
   position:absolute; inset:0;
   background:linear-gradient(180deg, #000000b0 0%, #00000040 38%, #00000090 100%);
 }
-.neon-content{ position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; gap:28px; }
+.neon-content{ position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; gap:24px; padding:0 12px; }
 .neon-text{
   font-family:'Great Vibes', cursive;
-  font-size:clamp(30px, 5.8vw, 56px);
-  line-height:1.3;
+  font-size:clamp(26px, 5.2vw, 54px);
+  line-height:1.35;
   color:#ffe9b8;
   text-shadow:
     0 0 6px #ffdf9a, 0 0 14px #ffcf6b, 0 0 26px #ffb84d, 0 0 46px #ff9f2e;
@@ -105,18 +110,18 @@ body{
   50%{ opacity:1; transform:scale(1.15); }
 }
 
-/* ---- Question Layout with Transparent Background for Theme Flow ---- */
+/* ---- Question Layout with Responsive Media Elements ---- */
 .scene-light{ background:transparent; }
 .qWrapper{
   display:flex; align-items:center; justify-content:center;
-  gap:clamp(16px, 4vw, 40px); max-width:1100px; width:100%;
+  gap:clamp(12px, 3.5vw, 36px); max-width:1100px; width:100%;
 }
 .mediaBox{
-  width:clamp(120px, 19vw, 220px);
-  height:clamp(120px, 19vw, 220px);
-  border-radius:24px;
-  border:4px solid var(--ink);
-  box-shadow:0 10px 0 #0002;
+  width:clamp(85px, 18vw, 200px);
+  height:clamp(85px, 18vw, 200px);
+  border-radius:20px;
+  border:3px solid var(--ink);
+  box-shadow:0 8px 0 #0002;
   overflow:hidden;
   flex-shrink:0;
   background:var(--card);
@@ -128,45 +133,45 @@ body{
 .rightMedia{ transform:rotate(5deg); }
 
 .qCenter{
-  display:flex; flex-direction:column; align-items:center; gap:16px;
-  max-width:550px;
+  display:flex; flex-direction:column; align-items:center; gap:14px;
+  max-width:520px;
 }
 .scene-light .qTitle{
-  font-family:'Baloo 2'; font-weight:800; font-size:clamp(24px,4vw,38px); color:var(--ink);
+  font-family:'Baloo 2'; font-weight:800; font-size:clamp(20px, 3.8vw, 36px); color:var(--ink);
   line-height:1.2;
 }
 .scene-light .qSub{
-  font-family:'Caveat'; font-weight:700; font-size:clamp(22px,3.2vw,30px); color:var(--peach-d);
+  font-family:'Caveat'; font-weight:700; font-size:clamp(19px, 3vw, 28px); color:var(--peach-d);
   margin-bottom:-6px;
 }
 
 .btnRow{ 
-  display:flex; gap:16px; justify-content:center; align-items:center; 
-  position:relative; width:100%; min-height:60px;
+  display:flex; gap:12px; justify-content:center; align-items:center; 
+  position:relative; width:100%; min-height:54px;
 }
 
 .choiceBtn{
-  font-family:'Baloo 2'; font-weight:800; font-size:18px;
+  font-family:'Baloo 2'; font-weight:800; font-size:clamp(15px, 2vw, 18px);
   border:3px solid var(--ink); border-radius:999px;
-  padding:12px 28px; cursor:pointer;
-  box-shadow:0 7px 0 #0002; transition:transform .12s ease;
+  padding:10px 24px; cursor:pointer;
+  box-shadow:0 6px 0 #0002; transition:transform .12s ease;
   white-space:nowrap;
 }
 .choiceBtn:active{ transform:translateY(3px); }
-.choiceBtn.good{ background:var(--mint); box-shadow:0 7px 0 #0002, inset 0 -4px 0 var(--mint-d); }
+.choiceBtn.good{ background:var(--mint); box-shadow:0 6px 0 #0002, inset 0 -4px 0 var(--mint-d); }
 .choiceBtn.dodgy{ 
-  background:var(--coral); color:#fff; box-shadow:0 7px 0 #0002, inset 0 -4px 0 #c94d47; 
+  background:var(--coral); color:#fff; box-shadow:0 6px 0 #0002, inset 0 -4px 0 #c94d47; 
   transition:left .2s cubic-bezier(0.34, 1.56, 0.64, 1), top .2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .nextBtn, .pillBtn{
-  font-family:'Baloo 2'; font-weight:800; font-size:19px;
+  font-family:'Baloo 2'; font-weight:800; font-size:clamp(16px, 2.2vw, 19px);
   background:var(--coral); color:#fff;
   border:3px solid var(--ink); border-radius:999px;
-  padding:14px 34px; cursor:pointer;
-  box-shadow:0 8px 0 #0002, inset 0 -5px 0 #c94d47;
+  padding:12px 30px; cursor:pointer;
+  box-shadow:0 7px 0 #0002, inset 0 -5px 0 #c94d47;
   transition:transform .15s ease;
-  display:inline-flex; align-items:center; gap:10px;
+  display:inline-flex; align-items:center; gap:8px;
 }
 .nextBtn:active, .pillBtn:active{ transform:translateY(4px); }
 
@@ -174,7 +179,7 @@ body{
 .stageContainer{
   position:relative;
   width:min(920px, 94vw);
-  height:min(580px, 80vh);
+  height:min(580px, 82vh);
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -182,39 +187,39 @@ body{
 }
 .cornerPic{
   position:absolute;
-  width:clamp(90px, 15vw, 155px);
-  height:clamp(90px, 15vw, 155px);
-  border-radius:20px;
-  border:4px solid var(--ink);
+  width:clamp(75px, 14vw, 145px);
+  height:clamp(75px, 14vw, 145px);
+  border-radius:18px;
+  border:3px solid var(--ink);
   background:var(--card);
-  box-shadow:0 10px 20px #0002;
+  box-shadow:0 8px 16px #0002;
   overflow:hidden;
 }
 .cornerPic img, .cornerPic video{ width:100%; height:100%; object-fit:cover; }
-.corner-tl{ top:0; left:0; transform:rotate(-8deg); }
-.corner-tr{ top:0; right:0; transform:rotate(8deg); }
-.corner-bl{ bottom:0; left:0; transform:rotate(6deg); }
-.corner-br{ bottom:0; right:0; transform:rotate(-6deg); }
+.corner-tl{ top:4px; left:4px; transform:rotate(-8deg); }
+.corner-tr{ top:4px; right:4px; transform:rotate(8deg); }
+.corner-bl{ bottom:4px; left:4px; transform:rotate(6deg); }
+.corner-br{ bottom:4px; right:4px; transform:rotate(-6deg); }
 
 .centerHero{
-  display:flex; flex-direction:column; align-items:center; gap:18px; text-align:center;
+  display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center;
   z-index:2;
 }
-.row { display:flex; gap:6px; align-items:flex-end; justify-content:center; flex-wrap:wrap; }
+.row { display:flex; gap:4px; align-items:flex-end; justify-content:center; flex-wrap:wrap; }
 .tile {
-  display:grid; place-items:center; min-width:48px; padding:4px 10px;
-  background:linear-gradient(#fff, #f6f8ff); border:4px solid var(--ink);
-  border-radius:14px; box-shadow:0 8px 0 #0002;
-  font-size:clamp(32px, 5vw, 60px); line-height:1; font-weight:800; color:var(--ink);
+  display:grid; place-items:center; min-width:clamp(38px, 6vw, 48px); padding:4px 8px;
+  background:linear-gradient(#fff, #f6f8ff); border:3px solid var(--ink);
+  border-radius:12px; box-shadow:0 6px 0 #0002;
+  font-size:clamp(26px, 4.8vw, 56px); line-height:1; font-weight:800; color:var(--ink);
   transform:translateY(40px); opacity:0;
 }
 .coralText {
-  display:inline-block; font-size:clamp(32px, 5vw, 60px); font-weight:800;
-  color:var(--peach-d); -webkit-text-stroke:2px var(--ink);
-  filter:drop-shadow(0 6px 0 #0002); transform:translateY(40px); opacity:0;
+  display:inline-block; font-size:clamp(26px, 4.8vw, 56px); font-weight:800;
+  color:var(--peach-d); -webkit-text-stroke:1.5px var(--ink);
+  filter:drop-shadow(0 5px 0 #0002); transform:translateY(40px); opacity:0;
 }
 .cake {
-  display:inline-block; margin-left:.35rem; font-size:clamp(26px, 3.8vw, 42px);
+  display:inline-block; margin-left:.35rem; font-size:clamp(22px, 3.5vw, 38px);
   animation:cakeWiggle 2.2s ease-in-out infinite;
 }
 @keyframes cakeWiggle {
@@ -223,7 +228,7 @@ body{
 }
 
 .hat {
-  position:absolute; width:clamp(30px, 4.5vw, 52px); height:clamp(30px, 4.5vw, 52px);
+  position:absolute; width:clamp(26px, 4vw, 48px); height:clamp(26px, 4vw, 48px);
   left:58%; top:-24%; transform-origin:30% 90%; animation:hatSlide 2.6s ease-in-out infinite;
 }
 @keyframes hatSlide {
@@ -231,35 +236,38 @@ body{
   50% { transform: translateX(4px) rotate(16deg); }
 }
 
-/* ================= 12 MONTHS BOARD (MAX 4 PER ROW) ================= */
-.boardWrap{ position:relative; z-index:2; min-height:100vh; padding:90px 24px 70px; display:none; }
+/* ================= 12 MONTHS BOARD ================= */
+.boardWrap{ position:relative; z-index:2; min-height:100vh; padding:80px 16px 60px; display:none; }
 .boardWrap.show{display:block}
 
-.boardHeader{ text-align:center; margin-bottom:28px; }
-.boardHeader h1{ font-family:'Baloo 2'; font-size:clamp(26px,4.2vw,46px); margin:0; color:var(--ink); }
-.boardSub{ text-align:center; margin-top:4px; }
-.boardSub p{ font-family:'Caveat'; font-size:24px; margin:0; color:var(--peach-d); }
+.boardHeader{ text-align:center; margin-bottom:20px; }
+.boardHeader h1{ font-family:'Baloo 2'; font-size:clamp(22px, 4.2vw, 42px); margin:0; color:var(--ink); }
+.boardSub{ text-align:center; margin-top:2px; }
+.boardSub p{ font-family:'Caveat'; font-size:clamp(19px, 3vw, 24px); margin:0; color:var(--peach-d); }
 
 .grid-notes{
   max-width:1180px; margin:0 auto;
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-  gap:26px 20px;
+  grid-template-columns: 1fr;
+  gap:16px;
 }
-@media(min-width: 992px){
-  .grid-notes{ grid-template-columns: repeat(4, 1fr); }
+@media(min-width: 600px){
+  .grid-notes{ grid-template-columns: repeat(2, 1fr); gap:18px; }
+}
+@media(min-width: 960px){
+  .grid-notes{ grid-template-columns: repeat(4, 1fr); gap:22px 18px; }
 }
 
 /* Interactive Card Styling */
 .monthCard{
-  position:relative; border-radius:16px; padding:20px 16px;
-  border:3px solid var(--ink); box-shadow:0 8px 18px #0002;
+  position:relative; border-radius:14px; padding:18px 14px;
+  border:3px solid var(--ink); box-shadow:0 6px 14px #0002;
   cursor:pointer; display:flex; flex-direction:column;
   align-items:center; justify-content:center; text-align:center;
-  min-height:110px; transition:transform .3s cubic-bezier(.2,.7,.3,1.3), box-shadow .3s ease;
+  min-height:95px; transition:transform .25s ease, box-shadow .25s ease;
   user-select:none;
 }
-.monthCard:hover{ transform:translateY(-4px) scale(1.02); }
+.monthCard:hover{ transform:translateY(-3px) scale(1.01); }
 
 .monthCard.c1{background:var(--peach)}
 .monthCard.c2{background:var(--lav)}
@@ -267,18 +275,18 @@ body{
 .monthCard.c4{background:var(--yellow)}
 
 .pin{
-  position:absolute; top:-10px; left:50%; transform:translateX(-50%);
-  width:16px; height:16px; border-radius:50%;
+  position:absolute; top:-9px; left:50%; transform:translateX(-50%);
+  width:14px; height:14px; border-radius:50%;
   background:radial-gradient(circle at 35% 30%, #fff, var(--coral) 60%, #a83a35 100%);
   border:1px solid #0003; box-shadow:0 2px 4px #0004;
 }
 
 .monthLabel{
-  font-family:'Baloo 2'; font-weight:800; font-size:22px; color:var(--ink);
+  font-family:'Baloo 2'; font-weight:800; font-size:clamp(19px, 2.5vw, 22px); color:var(--ink);
   transition:all .2s ease;
 }
 .monthSubPrompt{
-  font-family:'Caveat'; font-size:17px; color:#4a3427aa; margin-top:2px;
+  font-family:'Caveat'; font-size:16px; color:#4a3427aa; margin-top:2px;
 }
 
 /* Revealed Content on Click */
@@ -286,15 +294,15 @@ body{
   display:none; text-align:center; width:100%;
 }
 .monthCard.opened{
-  min-height:220px;
-  box-shadow:0 14px 28px #0003;
-  transform:scale(1.03);
+  min-height:200px;
+  box-shadow:0 12px 24px #0003;
+  transform:scale(1.02);
   z-index:4;
 }
 .monthCard.opened .monthSubPrompt{ display:none; }
 .monthCard.opened .monthLabel{
-  font-size:15px; background:#fff; border:2px solid var(--ink);
-  border-radius:999px; padding:2px 14px; margin-bottom:8px;
+  font-size:14px; background:#fff; border:2px solid var(--ink);
+  border-radius:999px; padding:2px 12px; margin-bottom:8px;
 }
 .monthCard.opened .monthDetails{ display:block; animation:fadeIn .3s ease; }
 
@@ -303,40 +311,40 @@ body{
   to{ opacity:1; transform:translateY(0); }
 }
 
-.monthHeading{ font-family:'Baloo 2'; font-weight:800; font-size:18px; margin-bottom:6px; color:var(--ink); line-height:1.2; }
-.monthBody{ font-family:'Caveat'; font-weight:700; font-size:20px; line-height:1.4; margin:0; }
+.monthHeading{ font-family:'Baloo 2'; font-weight:800; font-size:17px; margin-bottom:6px; color:var(--ink); line-height:1.2; }
+.monthBody{ font-family:'Caveat'; font-weight:700; font-size:19px; line-height:1.4; margin:0; }
 
 /* Floating Letter Button */
 .floatBtn{
-  position:fixed; top:18px; right:18px; z-index:20;
-  font-family:'Baloo 2'; font-weight:800; font-size:15px;
+  position:fixed; top:14px; right:14px; z-index:20;
+  font-family:'Baloo 2'; font-weight:800; font-size:clamp(13px, 1.8vw, 15px);
   background:var(--coral); color:#fff;
   border:3px solid var(--ink); border-radius:999px;
-  padding:10px 20px; cursor:pointer;
-  box-shadow:0 5px 0 #0002, inset 0 -4px 0 #c94d47;
-  display:none; align-items:center; gap:8px;
+  padding:8px 16px; cursor:pointer;
+  box-shadow:0 4px 0 #0002, inset 0 -4px 0 #c94d47;
+  display:none; align-items:center; gap:6px;
 }
 body.board-active .floatBtn{display:inline-flex}
 
 /* Modals */
 .modalBack{
   position:fixed; inset:0; background:#3a2b2380;
-  display:none; align-items:center; justify-content:center; z-index:40; padding:20px;
+  display:none; align-items:center; justify-content:center; z-index:40; padding:16px;
 }
 .modalBack.show{display:flex}
 .letterCard{
-  width:min(640px,94vw); max-height:86vh; overflow-y:auto;
-  background:var(--card); border:5px solid var(--ink); border-radius:20px;
-  padding:32px 28px 26px; position:relative; box-shadow:0 20px 40px #0004;
+  width:min(640px, 94vw); max-height:86vh; overflow-y:auto;
+  background:var(--card); border:4px solid var(--ink); border-radius:18px;
+  padding:26px 20px 20px; position:relative; box-shadow:0 18px 36px #0004;
 }
 .closeX{
-  position:absolute; right:12px; top:12px; width:34px; height:34px; border-radius:50%;
+  position:absolute; right:10px; top:10px; width:32px; height:32px; border-radius:50%;
   background:#fff; border:2px solid var(--ink); display:grid; place-items:center;
   font-weight:900; cursor:pointer;
 }
-.letterCard h2{ font-family:'Baloo 2'; text-align:center; margin:0 0 14px; font-size:26px; }
-.letterCard p{ font-family:'Caveat'; font-size:22px; line-height:1.55; white-space:pre-wrap; margin:0; }
-.signature{ text-align:right; font-family:'Caveat'; font-size:26px; margin-top:16px; color:var(--peach-d); }
+.letterCard h2{ font-family:'Baloo 2'; text-align:center; margin:0 0 12px; font-size:clamp(20px, 3.5vw, 24px); }
+.letterCard p{ font-family:'Caveat'; font-size:clamp(18px, 3vw, 21px); line-height:1.5; white-space:pre-wrap; margin:0; }
+.signature{ text-align:right; font-family:'Caveat'; font-size:clamp(20px, 3.5vw, 24px); margin-top:14px; color:var(--peach-d); }
 </style>
 </head>
 <body>
@@ -428,8 +436,8 @@ body.board-active .floatBtn{display:inline-flex}
       <div class="centerHero">
         <div class="row" id="rowHappy"></div>
         <div class="row" id="rowBirth"></div>
-        <div class="row" id="rowName" style="font-family:'Baloo 2'; font-size:clamp(30px, 4.5vw, 50px); font-weight:800; color:var(--ink); margin-top:-6px;">Meghana ✨</div>
-        <button class="pillBtn" id="openBoardBtn" style="margin-top:10px;">💌 View 12 Months Notes →</button>
+        <div class="row" id="rowName" style="font-family:'Baloo 2'; font-size:clamp(26px, 4.5vw, 46px); font-weight:800; color:var(--ink); margin-top:-4px;">Meghana ✨</div>
+        <button class="pillBtn" id="openBoardBtn" style="margin-top:8px;">💌 View 12 Months Notes →</button>
       </div>
     </div>
   </div>
@@ -532,20 +540,24 @@ const CONFIG = {
       note: "You made it through every storm, laughed through the chaos,\nand grew into someone extraordinary.\nEven when I get on your nerves, trust me on this:\nI will always be right in your corner, Meghana." 
     }
   ],
-  letterTitle: "To Meghana, on your birthday 💖",
+  letterTitle: "To my kuchu puchu Meghana 💖",
   letterBody:
-`Dear Meghana,
+`Most wonderful thing that happened to me is you. Em cheppamantav ne gurinchi. Oka artist. Oka dancer. Oka singer. Oka actor. Oka fighter what not. All these are inside you only Meghana. Just extrovert ipothe set. Anni lopalne daachukunte etla cheppu.
 
-Happy Birthday! 🎉
+Abhoo manaki masth Godaval iynay. Ippudu iythe huuu ante algutunnam 😂 chinna pillala kante ghoramga algutunnam. Manam kalsi almost 6 years iyendi telsentra Nek. Iyna ma gurinchi em telusthay le. Mekante fyaansssss unnar kadha 😏 perlu cheppamantava 😆 odhule Tarvatha cheptha.
 
-Writing this because you truly mean a lot to me. Through all the chaos, the laughter, the random talks, and everything in between, having you as my best friend has been one of the greatest blessings.
+Inka ne law Ipenaka ah thella coat eskoni na case vaadhinchali Nuv 🤭🤭 Idhi matram pakka. Manchiga law finish chesi Oka pedha lawyer Avvali Nuv. Ne dreams anni fulfill Avvali. Ne goals anni fulfill Avvali. Me parents ni me annaya ni manchiga chuskovali nuvve. Intiki pedha nuvve kadha anni lady boss laaga chuskovali andharni 😎
 
-I hope this year treats you with immense kindness, brings you closer to every single ambition you hold in your heart, and keeps your smile intact no matter what. Never stop creating your art, never stop being unapologetically yourself, and always remember I'm in your corner.
+Inka law degree tho Chadavadam aapava pls. Inni degree Lu nen evar deggara chudale 😂 Please aapesi first manchi lawyer iyyi side business ga ne paintings kuda chesey. Promotion ki nen unna ga. Logistics nen chuskunta Nuv lawyer dhi chusko 🤣 Gurtochindha 😂😂 Gurturakapothe insta lo adugu cheptha.
 
-(You can edit and customize this entire letter text whenever you want!)`,
+Pelli dhi Emundi le … single ga undu ipothadi. Em cheskuntav Pelli Sodhi. Full paisal sampadinchu Nannu takva adugu inka 😂😂😂 Oorike Anna le. Nen eppatilaagane anni konistha Nek. Aachi toochi chusi order pettu sarena 🤭🤭
+
+Inkem lev ra. Manchiga rep movie ki po. Full enjoy chey. Morning ye paisal pampistha. Full ga tinu. Intiki kuda order pettu. Manchiga chusko andharni. Nannu kuda chusko manchiga. Inka manchiga celebrate chesi pics pampu without timer 😭
+
+Once again happy birthday Meghana. The moon is beautiful. Isn’t it? Moon kante andhamga untav ani cheptunna ra 🤭🤭🤭 Sarle manchiga enjoy chey taataaaaa`,
   signature: "— always your bestie ✨",
   sparkleSet: ["✨","🌟","💫","🌸","🎀","💕","🧁","🎈"],
-  sparklesPerSecond: 10
+  sparklesPerSecond: window.innerWidth < 600 ? 5 : 9
 };
 
 /* ===================== SPARKLES ===================== */
@@ -563,7 +575,7 @@ function spawnSpark(){
   setTimeout(()=> s.style.opacity = 0, 400 + Math.random()*500);
   setTimeout(()=> s.remove(), 1200);
 }
-for(let i=0;i<4;i++) spawnSpark();
+for(let i=0;i<3;i++) spawnSpark();
 setInterval(spawnSpark, 1000/CONFIG.sparklesPerSecond);
 
 /* ===================== AUDIO ===================== */
@@ -621,7 +633,7 @@ function showScene(n){
 backBtn.addEventListener('click', ()=>{ if(currentScene > 0) showScene(currentScene - 1); });
 showScene(0);
 
-/* ===================== HOVER-ONLY DODGY BUTTON ===================== */
+/* ===================== RESPONSIVE DODGY BUTTON ===================== */
 function makeDodgy(btn){
   let isFixed = false;
   function dodge(){
@@ -629,11 +641,12 @@ function makeDodgy(btn){
       btn.style.position = 'fixed';
       isFixed = true;
     }
-    const w = btn.offsetWidth || 120, h = btn.offsetHeight || 45;
-    const maxX = Math.max(20, window.innerWidth - w - 20);
-    const maxY = Math.max(20, window.innerHeight - h - 20);
-    btn.style.left = (20 + Math.random()*maxX) + 'px';
-    btn.style.top  = (20 + Math.random()*maxY) + 'px';
+    const w = btn.offsetWidth || 100, h = btn.offsetHeight || 42;
+    const pad = 16;
+    const maxX = Math.max(pad, window.innerWidth - w - pad);
+    const maxY = Math.max(pad, window.innerHeight - h - pad);
+    btn.style.left = (pad + Math.random()*maxX) + 'px';
+    btn.style.top  = (pad + Math.random()*maxY) + 'px';
   }
   btn.addEventListener('mouseenter', dodge);
   btn.addEventListener('touchstart', (e)=>{ e.preventDefault(); dodge(); }, {passive:false});
@@ -705,7 +718,7 @@ function animateBirthdayScene(){
   setTimeout(()=>animateWord(rowBirth, false), 110*CONFIG.happy.length + 200);
 }
 
-/* ===================== BUILD 12 MONTHS BOARD (CLICK-TO-REVEAL) ===================== */
+/* ===================== BUILD 12 MONTHS (CLICK-TO-REVEAL) ===================== */
 const grid = document.getElementById('grid');
 const colorClasses = ['c1','c2','c3','c4'];
 let activeCard = null;
@@ -743,7 +756,7 @@ function buildBoard(){
   });
 }
 
-// Clicking outside any card resets to month-name-only
+// Tap outside cards to close active card
 document.addEventListener('click', (e) => {
   if (activeCard && !e.target.closest('.monthCard')) {
     activeCard.classList.remove('opened');
@@ -764,9 +777,9 @@ letterBtn.addEventListener('click', ()=>{
     const bodyEl = document.getElementById('letterBody');
     const signEl = document.getElementById('letterSign');
     titleEl.textContent=''; bodyEl.textContent=''; signEl.textContent='';
-    typewrite(titleEl, CONFIG.letterTitle, 32, ()=>{
-      typewrite(bodyEl, CONFIG.letterBody, 14, ()=>{
-        typewrite(signEl, CONFIG.signature, 40, ()=>{ letterTyped = true; });
+    typewrite(titleEl, CONFIG.letterTitle, 30, ()=>{
+      typewrite(bodyEl, CONFIG.letterBody, 12, ()=>{
+        typewrite(signEl, CONFIG.signature, 36, ()=>{ letterTyped = true; });
       });
     });
   }
