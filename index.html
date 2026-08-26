@@ -9,35 +9,43 @@
 
 <style>
 :root{
-  --bg:#fff2e3;
+  --bg-gradient: radial-gradient(circle at 12% 18%, #ffe8d6 0%, transparent 40%),
+                 radial-gradient(circle at 88% 16%, #ffd7e8 0%, transparent 40%),
+                 radial-gradient(circle at 50% 85%, #daf2e0 0%, transparent 50%),
+                 radial-gradient(circle at 82% 82%, #ffeed4 0%, transparent 45%),
+                 #fef7ee;
   --board:#f4e2c4;
-  --board-d:#e9cf9f;
+  --board-d:#dfbe86;
   --card:#fffaf1;
   --ink:#4a3427;
-  --peach:#ff9d68;
+  --peach:#ffb58a;
   --peach-d:#e97f47;
-  --lav:#c6a8ff;
+  --lav:#d8c2ff;
   --lav-d:#a97ff0;
-  --mint:#9adfc0;
+  --mint:#b2ecd1;
   --mint-d:#6cc79c;
-  --yellow:#ffe08a;
+  --yellow:#ffea9f;
   --yellow-d:#f0c256;
   --coral:#ff6f6a;
 }
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
 body{
-  background:var(--bg);
+  background: var(--bg-gradient);
+  background-attachment: fixed;
   font-family:'Nunito',system-ui;
   color:var(--ink);
   overflow-x:hidden;
 }
 
+/* Artistic Watercolor & Canvas Texture */
 .texture{
   position:fixed; inset:0; pointer-events:none; z-index:0;
-  background-image:radial-gradient(var(--board-d) 1.4px, transparent 1.4px);
-  background-size:26px 26px;
-  opacity:.35;
+  background-image:
+    radial-gradient(var(--board-d) 1.2px, transparent 1.2px),
+    repeating-linear-gradient(45deg, rgba(223, 190, 134, 0.08) 0px, rgba(223, 190, 134, 0.08) 2px, transparent 2px, transparent 8px);
+  background-size:24px 24px, 16px 16px;
+  opacity:.45;
 }
 .sparkle{
   position:fixed; pointer-events:none; font-size:22px; opacity:0;
@@ -97,8 +105,8 @@ body{
   50%{ opacity:1; transform:scale(1.15); }
 }
 
-/* ---- Question Layout with Larger Media Elements ---- */
-.scene-light{ background:var(--bg); }
+/* ---- Question Layout with Transparent Background for Theme Flow ---- */
+.scene-light{ background:transparent; }
 .qWrapper{
   display:flex; align-items:center; justify-content:center;
   gap:clamp(16px, 4vw, 40px); max-width:1100px; width:100%;
@@ -106,9 +114,9 @@ body{
 .mediaBox{
   width:clamp(120px, 19vw, 220px);
   height:clamp(120px, 19vw, 220px);
-  border-radius:22px;
+  border-radius:24px;
   border:4px solid var(--ink);
-  box-shadow:0 8px 0 #0002;
+  box-shadow:0 10px 0 #0002;
   overflow:hidden;
   flex-shrink:0;
   background:var(--card);
@@ -162,11 +170,11 @@ body{
 }
 .nextBtn:active, .pillBtn:active{ transform:translateY(4px); }
 
-/* ---- Scene 4: 4 Corners Peach Goma Stage ---- */
+/* ---- Scene 4: 4 Corners Birthday Stage ---- */
 .stageContainer{
   position:relative;
-  width:min(900px, 94vw);
-  height:min(560px, 80vh);
+  width:min(920px, 94vw);
+  height:min(580px, 80vh);
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -174,14 +182,13 @@ body{
 }
 .cornerPic{
   position:absolute;
-  width:clamp(85px, 14vw, 145px);
-  height:clamp(85px, 14vw, 145px);
-  border-radius:18px;
-  border:3px solid var(--ink);
+  width:clamp(90px, 15vw, 155px);
+  height:clamp(90px, 15vw, 155px);
+  border-radius:20px;
+  border:4px solid var(--ink);
   background:var(--card);
-  box-shadow:0 8px 16px #0002;
+  box-shadow:0 10px 20px #0002;
   overflow:hidden;
-  transition:transform .3s ease;
 }
 .cornerPic img, .cornerPic video{ width:100%; height:100%; object-fit:cover; }
 .corner-tl{ top:0; left:0; transform:rotate(-8deg); }
@@ -190,7 +197,7 @@ body{
 .corner-br{ bottom:0; right:0; transform:rotate(-6deg); }
 
 .centerHero{
-  display:flex; flex-direction:column; align-items:center; gap:20px; text-align:center;
+  display:flex; flex-direction:column; align-items:center; gap:18px; text-align:center;
   z-index:2;
 }
 .row { display:flex; gap:6px; align-items:flex-end; justify-content:center; flex-wrap:wrap; }
@@ -224,30 +231,35 @@ body{
   50% { transform: translateX(4px) rotate(16deg); }
 }
 
-/* ================= 12 MONTHS BOARD ================= */
-.boardWrap{ position:relative; z-index:2; min-height:100vh; padding:90px 20px 60px; display:none; }
+/* ================= 12 MONTHS BOARD (MAX 4 PER ROW) ================= */
+.boardWrap{ position:relative; z-index:2; min-height:100vh; padding:90px 24px 70px; display:none; }
 .boardWrap.show{display:block}
 
-.boardHeader{ text-align:center; margin-bottom:26px; }
-.boardHeader h1{ font-family:'Baloo 2'; font-size:clamp(26px,4vw,44px); margin:0; color:var(--ink); }
-.boardSub{ text-align:center; }
-.boardSub p{ font-family:'Caveat'; font-size:24px; margin:4px 0 0; color:var(--peach-d); }
+.boardHeader{ text-align:center; margin-bottom:28px; }
+.boardHeader h1{ font-family:'Baloo 2'; font-size:clamp(26px,4.2vw,46px); margin:0; color:var(--ink); }
+.boardSub{ text-align:center; margin-top:4px; }
+.boardSub p{ font-family:'Caveat'; font-size:24px; margin:0; color:var(--peach-d); }
 
 .grid-notes{
-  max-width:1150px; margin:0 auto;
+  max-width:1180px; margin:0 auto;
   display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
-  gap:24px 20px;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:26px 20px;
 }
+@media(min-width: 992px){
+  .grid-notes{ grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Interactive Card Styling */
 .monthCard{
-  position:relative; border-radius:12px; padding:22px 18px 18px;
+  position:relative; border-radius:16px; padding:20px 16px;
   border:3px solid var(--ink); box-shadow:0 8px 18px #0002;
-  opacity:0; transform:translateY(40px) scale(.95);
-  transition:opacity .5s ease, transform .5s cubic-bezier(.2,.7,.3,1.3);
   cursor:pointer; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center;
+  min-height:110px; transition:transform .3s cubic-bezier(.2,.7,.3,1.3), box-shadow .3s ease;
+  user-select:none;
 }
-.grid-notes.animate .monthCard{ opacity:1; transform:translateY(0) scale(1) rotate(var(--rot)); }
-.grid-notes.animate .monthCard:hover{ transform:scale(1.03) rotate(0deg); z-index:5; }
+.monthCard:hover{ transform:translateY(-4px) scale(1.02); }
 
 .monthCard.c1{background:var(--peach)}
 .monthCard.c2{background:var(--lav)}
@@ -258,15 +270,41 @@ body{
   position:absolute; top:-10px; left:50%; transform:translateX(-50%);
   width:16px; height:16px; border-radius:50%;
   background:radial-gradient(circle at 35% 30%, #fff, var(--coral) 60%, #a83a35 100%);
-  border:1px solid #0003; box-shadow:0 2px 3px #0004;
+  border:1px solid #0003; box-shadow:0 2px 4px #0004;
 }
-.monthPill{
-  align-self:flex-start; font-family:'Baloo 2'; font-weight:800; font-size:13px;
-  background:#fff; border:2px solid var(--ink); border-radius:999px;
-  padding:2px 10px; margin-bottom:8px; box-shadow:0 2px 0 #0001;
+
+.monthLabel{
+  font-family:'Baloo 2'; font-weight:800; font-size:22px; color:var(--ink);
+  transition:all .2s ease;
 }
-.monthHeading{ font-family:'Baloo 2'; font-weight:800; font-size:18px; margin-bottom:6px; color:var(--ink); }
-.monthBody{ font-family:'Caveat'; font-weight:700; font-size:21px; line-height:1.45; margin:0; }
+.monthSubPrompt{
+  font-family:'Caveat'; font-size:17px; color:#4a3427aa; margin-top:2px;
+}
+
+/* Revealed Content on Click */
+.monthDetails{
+  display:none; text-align:center; width:100%;
+}
+.monthCard.opened{
+  min-height:220px;
+  box-shadow:0 14px 28px #0003;
+  transform:scale(1.03);
+  z-index:4;
+}
+.monthCard.opened .monthSubPrompt{ display:none; }
+.monthCard.opened .monthLabel{
+  font-size:15px; background:#fff; border:2px solid var(--ink);
+  border-radius:999px; padding:2px 14px; margin-bottom:8px;
+}
+.monthCard.opened .monthDetails{ display:block; animation:fadeIn .3s ease; }
+
+@keyframes fadeIn{
+  from{ opacity:0; transform:translateY(6px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+.monthHeading{ font-family:'Baloo 2'; font-weight:800; font-size:18px; margin-bottom:6px; color:var(--ink); line-height:1.2; }
+.monthBody{ font-family:'Caveat'; font-weight:700; font-size:20px; line-height:1.4; margin:0; }
 
 /* Floating Letter Button */
 .floatBtn{
@@ -290,10 +328,6 @@ body.board-active .floatBtn{display:inline-flex}
   width:min(640px,94vw); max-height:86vh; overflow-y:auto;
   background:var(--card); border:5px solid var(--ink); border-radius:20px;
   padding:32px 28px 26px; position:relative; box-shadow:0 20px 40px #0004;
-}
-.zoomCard{
-  width:min(460px,92vw); background:var(--card); border:5px solid var(--ink); border-radius:20px;
-  padding:30px 24px; position:relative; text-align:center;
 }
 .closeX{
   position:absolute; right:12px; top:12px; width:34px; height:34px; border-radius:50%;
@@ -332,7 +366,6 @@ body.board-active .floatBtn{display:inline-flex}
   <div class="scene scene-light" id="scene1">
     <div class="qWrapper">
       <div class="mediaBox leftMedia" id="q1LeftMedia">
-        <!-- Replace src with your JPG, PNG, GIF, or WebM/MP4 -->
         <img src="shy-left.gif" alt="shy left" onerror="this.src='shy-left.jpeg'">
       </div>
       <div class="qCenter">
@@ -384,10 +417,9 @@ body.board-active .floatBtn{display:inline-flex}
     </div>
   </div>
 
-  <!-- Scene 4: Peach Goma 4 Corners Birthday Stage -->
+  <!-- Scene 4: 4 Corners Birthday Stage -->
   <div class="scene scene-light" id="scene4">
     <div class="stageContainer">
-      <!-- 4 Corners Peach Goma / Milk Mocha pics or gifs -->
       <div class="cornerPic corner-tl"><img src="corner1.gif" alt="Peach Goma" onerror="this.src='corner1.jpeg'"></div>
       <div class="cornerPic corner-tr"><img src="corner2.gif" alt="Peach Goma" onerror="this.src='corner2.jpeg'"></div>
       <div class="cornerPic corner-bl"><img src="corner3.gif" alt="Milk Mocha" onerror="this.src='corner3.jpeg'"></div>
@@ -409,16 +441,11 @@ body.board-active .floatBtn{display:inline-flex}
   <div class="boardHeader">
     <h1>12 Months for You, Meghana ✨</h1>
   </div>
-  <div class="boardSub"><p>tap any note to peek closer</p></div>
+  <div class="boardSub"><p>tap any month to reveal its message</p></div>
   <div class="grid-notes" id="grid"></div>
 </div>
 
 <button class="floatBtn" id="letterBtn">💌 Read My Letter</button>
-
-<!-- ZOOM MODAL -->
-<div class="modalBack" id="zoomModal">
-  <div class="zoomCard" id="zoomCardInner"></div>
-</div>
 
 <!-- LETTER MODAL -->
 <div class="modalBack" id="letterModal">
@@ -678,46 +705,53 @@ function animateBirthdayScene(){
   setTimeout(()=>animateWord(rowBirth, false), 110*CONFIG.happy.length + 200);
 }
 
-/* ===================== BUILD 12 MONTHS BOARD ===================== */
+/* ===================== BUILD 12 MONTHS BOARD (CLICK-TO-REVEAL) ===================== */
 const grid = document.getElementById('grid');
-const rotations = [-3, 3, -2, 4, -4, 2, -3, 3, -2, 4, -3, 2];
 const colorClasses = ['c1','c2','c3','c4'];
+let activeCard = null;
 
 function buildBoard(){
   grid.innerHTML = '';
   CONFIG.twelveMonths.forEach((m, idx) => {
-    const rot = rotations[idx % rotations.length];
     const el = document.createElement('div');
     el.className = `monthCard ${colorClasses[idx % colorClasses.length]}`;
-    el.style.setProperty('--rot', rot+'deg');
     el.innerHTML = `
       <div class="pin"></div>
-      <div class="monthPill">${m.month}</div>
-      <div class="monthHeading">${m.title}</div>
-      <p class="monthBody">"${m.note.replace(/\n/g, '<br>')}"</p>
+      <div class="monthLabel">${m.month}</div>
+      <div class="monthSubPrompt">tap to open 💌</div>
+      <div class="monthDetails">
+        <div class="monthHeading">${m.title}</div>
+        <p class="monthBody">"${m.note.replace(/\n/g, '<br>')}"</p>
+      </div>
     `;
-    el.addEventListener('click', ()=> openZoomMonth(m));
+    
+    el.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (el === activeCard) {
+        el.classList.remove('opened');
+        activeCard = null;
+      } else {
+        if (activeCard) {
+          activeCard.classList.remove('opened');
+        }
+        el.classList.add('opened');
+        activeCard = el;
+      }
+    });
+
     grid.appendChild(el);
   });
-  requestAnimationFrame(()=> setTimeout(()=> grid.classList.add('animate'), 60));
 }
+
+// Clicking outside any card resets to month-name-only
+document.addEventListener('click', (e) => {
+  if (activeCard && !e.target.closest('.monthCard')) {
+    activeCard.classList.remove('opened');
+    activeCard = null;
+  }
+});
 
 /* ===================== MODALS ===================== */
-const zoomModal = document.getElementById('zoomModal');
-const zoomInner = document.getElementById('zoomCardInner');
-
-function openZoomMonth(m){
-  zoomInner.innerHTML = `
-    <button class="closeX" id="zoomClose">✕</button>
-    <div style="font-family:'Baloo 2'; font-weight:800; font-size:16px; color:var(--peach-d); margin-bottom:4px;">${m.month}</div>
-    <h3 style="font-family:'Baloo 2'; font-size:22px; margin:0 0 10px; color:var(--ink);">${m.title}</h3>
-    <p style="font-family:'Caveat'; font-size:24px; line-height:1.5; color:var(--ink); white-space:pre-wrap; margin:0;">${m.note}</p>
-  `;
-  zoomModal.classList.add('show');
-  document.getElementById('zoomClose').addEventListener('click', ()=> zoomModal.classList.remove('show'));
-}
-zoomModal.addEventListener('click', e => { if(e.target===zoomModal) zoomModal.classList.remove('show'); });
-
 const letterModal = document.getElementById('letterModal');
 const letterBtn = document.getElementById('letterBtn');
 const letterClose = document.getElementById('letterClose');
